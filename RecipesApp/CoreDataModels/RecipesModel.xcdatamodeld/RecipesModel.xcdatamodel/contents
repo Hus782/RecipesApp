@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AppUser" representedClassName="AppUser" syncable="YES">
+        <attribute name="email" attributeType="String"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="RecipeEntity" inverseName="user" inverseEntity="RecipeEntity"/>
+    </entity>
+    <entity name="RecipeEntity" representedClassName="RecipeEntity" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="imageURL" attributeType="String"/>
+        <attribute name="ingredients" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="steps" attributeType="String"/>
+        <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="AppUser" inverseName="recipes" inverseEntity="AppUser"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="RecipeEntity" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="AppUser" positionX="-63" positionY="18" width="128" height="59"/>
+    </elements>
+</model>
